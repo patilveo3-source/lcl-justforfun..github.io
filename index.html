@@ -277,9 +277,9 @@ select.finp option{background:var(--card)}
   <div class="sbox">
     <div class="sbox-t" style="color:var(--g)">⚡ Connect via Google Apps Script <span style="font-size:10px;background:rgba(0,232,162,.1);border:1px solid rgba(0,232,162,.2);color:var(--g);padding:2px 8px;border-radius:10px;font-family:var(--font-hd);letter-spacing:1px">RECOMMENDED</span></div>
     <div class="sbox-s">One-time setup. Paste your Apps Script URL below — this bypasses all CORS issues permanently.</div>
-
+    
     <label class="flbl">Apps Script Web App URL</label>
-    <input class="finp" id="gas-url" placeholder="https://script.google.com/macros/s/…/exec">
+    <input class="finp" id="gas-url" placeholder="https://script.google.com/macros/s/AKfycbyldOyhLvOKhTvQawO449kDEdbDj4SdJStM_moL8Ejszcl1G2yfPC9obFhdhatBgw-GRA/exec">
 
     <button class="btn btn-g btn-full" onclick="connectGAS()" style="margin-bottom:10px">CONNECT & LOAD →</button>
 
@@ -532,6 +532,7 @@ function getTeamIcon(name){
 // SETUP
 // ══════════════════════════════════════════════
 function connectGAS(){
+  document.getElementById('gas-url').value = 'https://script.google.com/macros/s/AKfycbyldOyhLvOKhTvQawO449kDEdbDj4SdJStM_moL8Ejszcl1G2yfPC9obFhdhatBgw-GRA/exec';
   var url=document.getElementById('gas-url').value.trim();
   if(!url.startsWith('https://script.google.com')){
     showToast('⚠️ URL must start with https://script.google.com','err');return;
@@ -1046,7 +1047,7 @@ function showToast(msg,type){var t=document.getElementById('toast');t.textConten
 // INIT
 (function(){
   var gas=localStorage.getItem('scf_gas');
-  if(gas){GAS_URL=gas;document.getElementById('gas-url').value=gas;launchApp();doSync();}
+  if(gas){GAS_URL=gas;document.getElementById('gas-url').value='https://script.google.com/macros/s/AKfycbyldOyhLvOKhTvQawO449kDEdbDj4SdJStM_moL8Ejszcl1G2yfPC9obFhdhatBgw-GRA/exec';launchApp();doSync();}
 })();
 </script>
 </body>
